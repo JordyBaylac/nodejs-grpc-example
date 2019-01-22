@@ -39,4 +39,4 @@ This client will send credit card authorization requests to the payment service 
 
 ## Result
 
-![Payment solution](https://github.com/JordyBaylac/nodejs-grpc-example/blob/master/sample.png)
+![Payment solution](https://github.com/JordyBaylac/nodejs-grpc-example/blob/master/sample.PNG)
