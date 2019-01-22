@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package payment;
+
+service Validation {
+    rpc Authorize (AuthorizationRequest) returns (AuthorizationResponse);
+    rpc RecordSuccessfulAuth (Empty) returns (stream SuccessfulAuthorization);
+}
+
+message AuthorizationRequest {
+    required string cardNumber = 1;
+    required float amount = 2;
+}
+
+message AuthorizationResponse {
+    enum Status {
+        OK = 0;
+        INVALID = 1;
+    }
+    required Status status = 1;
+    required string approvalCode = 2;
+}
+
+message SuccessfulAuthorization {
+    required string approvalCode = 1;
+}
+
+message Empty {
+
+}
