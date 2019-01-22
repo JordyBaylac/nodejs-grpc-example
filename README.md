@@ -16,10 +16,11 @@ We will develop 3 microservices:
 * One for the api bussines.
 * One for the hotfile process.
 
+## Phase 1: Microservice Architecture
 
-## Services description
+### Services description
 
-### **payment**
+#### **payment**
 
 This service expose a gRPC server with two methods:
 
@@ -28,15 +29,25 @@ This service expose a gRPC server with two methods:
 
 Check the [protobuf service definition](https://github.com/JordyBaylac/nodejs-grpc-example/blob/master/payment/src/protos/validation.proto).
 
-### **hotfile**
+#### **hotfile**
 
 This client get subscribed to the *recordSuccessfulAuth* method and will print a message if a successful authorization is received.
 
-### **api**
+#### **api**
 
 This client will send credit card authorization requests to the payment service every 4 seconds. A message will be printed with the authorization response received.
 
-
-## Result
+### Result
 
 ![Payment solution](https://github.com/JordyBaylac/nodejs-grpc-example/blob/master/sample.PNG)
+
+## Phase 2: Distributed tracing
+
+After some analysis I decide to go with Opentracing and Jaeger. 
+
+### Requeriments
+
+1- [Download Jaeger](https://www.jaegertracing.io/download/) tracing from their website jaegertracing.io. 
+2- Run the Jaeger service and open [http://localhost:16686](http://localhost:16686).
+3- Follow this [NodeJS tutorial](https://github.com/yurishkuro/opentracing-tutorial/tree/master/nodejs).
+

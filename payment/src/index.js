@@ -1,4 +1,4 @@
-const startServer = require('./config').startServer;
+const startServer = require('./config/payment_service').startServer;
 
 
 startServer(45200);
