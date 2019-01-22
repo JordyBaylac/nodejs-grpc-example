@@ -35,3 +35,8 @@ This client get subscribed to the *recordSuccessfulAuth* method and will print a
 ### **api**
 
 This client will send credit card authorization requests to the payment service every 4 seconds. A message will be printed with the authorization response received.
+
+
+## Result
+
+![Payment solution](https://github.com/JordyBaylac/nodejs-grpc-example/blob/master/sample.png)
