@@ -1,11 +1,11 @@
 const randomstring = require("randomstring");
 
 function authorize(authorizationRequest) {
-    let status = "INVALID";
+    let status = "DECLINED";
 
     const approvalCode = randomstring.generate(7);
     if (isValidPayment(approvalCode)) {
-        status = "OK";
+        status = "ACCEPTED";
     }
 
     return {
@@ -21,7 +21,9 @@ function authorize(authorizationRequest) {
  */
 function isValidPayment(approvalCode) {
     const invalidCharacters = ['x', 'a', 'v'];
-    const hasInvalidChars = approvalCode.split('')
+    const hasInvalidChars = approvalCode
+        .toLowerCase()
+        .split('')
         .some((x) => invalidCharacters.includes(x));
     return !hasInvalidChars;
 }

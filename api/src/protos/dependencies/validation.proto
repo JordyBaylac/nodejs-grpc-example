@@ -14,8 +14,8 @@ message AuthorizationRequest {
 
 message AuthorizationResponse {
     enum Status {
-        OK = 0;
-        INVALID = 1;
+        ACCEPTED = 0;
+        DECLINED = 1;
     }
     required Status status = 1;
     required string approvalCode = 2;

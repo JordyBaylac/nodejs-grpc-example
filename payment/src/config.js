@@ -31,7 +31,7 @@ function getServer() {
     server.addService(validationService, {
         authorize: (call, callback) => {
             const authResponse = validationHandlers.authorize(call.request);
-            if (authResponse.status === "OK") {                
+            if (authResponse.status === "ACCEPTED") {                
                 authEmitter.emit('successful-authorization', authResponse.approvalCode);
             }
             callback(null, authResponse);            
